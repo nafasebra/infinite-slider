@@ -22,7 +22,17 @@
   height: 100vh;
   object-fit: cover;
 }
-
+.slider-text{
+  position: fixed;
+  bottom: 0;
+  color: #ffffff;
+}
+.slider-text h2{
+  font-size: 1.5em;
+}
+.slider-text p{
+  font-size: 1em;
+}
 
 .controls{
   position: fixed;
