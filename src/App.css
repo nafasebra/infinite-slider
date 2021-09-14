@@ -22,10 +22,14 @@
   height: 100vh;
   object-fit: cover;
 }
+
 .slider-text{
   position: fixed;
   bottom: 0;
   color: #ffffff;
+  background-color: #2121217c;
+  padding: 0.5em 1.5em;
+  width: 50%;
 }
 .slider-text h2{
   font-size: 1.5em;
@@ -36,7 +40,7 @@
 
 .controls{
   position: fixed;
-  left: 0;
+  right: 0;
   top: 50%;
   display: flex;
   flex-direction: column;
@@ -44,7 +48,7 @@
 .controls button{
   width: 40px;
   height: 40px;
-  margin: 0.5em;
+  margin: 0.5em 1em;
   display: flex;
   align-items: center;
   justify-content: center;
