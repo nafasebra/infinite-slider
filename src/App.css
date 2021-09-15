@@ -13,17 +13,16 @@
   height: 300%;
 }
 
-.slider-item{
+.slider__item{
   display: flex;
 }
-
-.slider-item img{
+.slider__item img{
   width: 100vw;
   height: 100vh;
   object-fit: cover;
 }
 
-.slider-text{
+.caption{
   position: fixed;
   bottom: 0;
   color: #ffffff;
@@ -31,10 +30,10 @@
   padding: 0.5em 1.5em;
   width: 50%;
 }
-.slider-text h2{
+.caption__title{
   font-size: 1.5em;
 }
-.slider-text p{
+.caption__desc{
   font-size: 1em;
 }
 
@@ -45,7 +44,8 @@
   display: flex;
   flex-direction: column;
 }
-.controls button{
+.prev__button,
+.next__button{
   width: 40px;
   height: 40px;
   margin: 0.5em 1em;
@@ -55,7 +55,8 @@
   border-radius: 100%;
   cursor: pointer;
 }
-.controls button svg{
+.prev__button svg,
+.next__button svg{
   width: 20px;
   stroke: #212121;
 }
