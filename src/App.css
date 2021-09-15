@@ -54,6 +54,11 @@
   justify-content: center;
   border-radius: 100%;
   cursor: pointer;
+  transition: background 300ms;
+}
+.prev__button:hover,
+.next__button:hover{
+  background-color: #cccccc;
 }
 .prev__button svg,
 .next__button svg{
