@@ -14,12 +14,14 @@ class App extends Component {
 
     this.state = {
       topPosSlide: 0,
-      index: 0
+      index: 0,
+      captionOpacity: 1
     }
   }
 
+
   prevSlide() { 
-    // set dynamic change top position variable
+    // set dynamic change top position variable and caption index
     let positionLastItem = (DataSlider.length - 1) * 100;
     // change top position slider when clicked on up button
     if(this.state.topPosSlide === 0) {
@@ -36,7 +38,16 @@ class App extends Component {
       })
     }
 
-    // change caption when clicked on up button
+    requestAnimationFrame(() => {
+      this.setState({
+        captionOpacity: 0.5
+      })
+      setTimeout(() => {
+        this.setState({
+          captionOpacity: 1
+        })
+      }, 200);
+    })
   }
 
   nextSlide() {
@@ -56,10 +67,22 @@ class App extends Component {
         index: this.state.index + 1
       })
     }
+
+    requestAnimationFrame(() => {
+      this.setState({
+        captionOpacity: 0
+      })
+      setTimeout(() => {
+        this.setState({
+          captionOpacity: 1
+        })
+      }, 500);
+    })
   }
 
 
   render() {
+    
     return (
       <div className="app-container">
         <div 
@@ -77,14 +100,19 @@ class App extends Component {
             }
 
             <div className="caption"> 
-              <h2 className="caption__title">
-                {console.log(this.state.index)}
-                {DataSlider[this.state.index].captionTitle}
-              </h2>
-              <p className="caption__desc">
-                {console.log(this.state.index)}
-                {DataSlider[this.state.index].captionDesc}
-              </p>
+              <div 
+                style={{
+                  opacity: this.state.captionOpacity,
+                  transition: 'all 0.5s'
+                }}
+              >
+                <h2 className="caption__title">
+                  {DataSlider[this.state.index].captionTitle}
+                </h2>
+                <p className="caption__desc">
+                  {DataSlider[this.state.index].captionDesc}
+                </p>
+              </div>
             </div>
 
             <div className="controls">
