@@ -13,18 +13,18 @@ class App extends Component {
     super();
 
     this.state = {
-      topPosSlide: 0
+      topPosSlide: 0,
+      captionTitle: '',
+      captionDesc: '',
+      index: 0
     }
   }
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
-
   prevSlide() { 
+    let positionLastItem = (DataSlider.length - 1) * 100;
     if(this.state.topPosSlide === 0) {
       this.setState({
-        topPosSlide: -200
+        topPosSlide: -positionLastItem
       })
     } else {
       this.setState({
@@ -34,7 +34,8 @@ class App extends Component {
   }
 
   nextSlide() {
-    if(this.state.topPosSlide === -200) {
+    let positionLastItem = (DataSlider.length - 1) * 100;
+    if(this.state.topPosSlide === -positionLastItem) {
       this.setState({
         topPosSlide: 0
       })
