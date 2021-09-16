@@ -14,34 +14,46 @@ class App extends Component {
 
     this.state = {
       topPosSlide: 0,
-      captionTitle: '',
-      captionDesc: '',
       index: 0
     }
   }
 
   prevSlide() { 
+    // set dynamic change top position variable
     let positionLastItem = (DataSlider.length - 1) * 100;
+    // change top position slider when clicked on up button
     if(this.state.topPosSlide === 0) {
       this.setState({
-        topPosSlide: -positionLastItem
+        ...this.state,
+        topPosSlide: -positionLastItem,
+        index: 2
       })
     } else {
       this.setState({
-        topPosSlide: this.state.topPosSlide + 100
+        ...this.state,
+        topPosSlide: this.state.topPosSlide + 100,
+        index: this.state.index - 1
       })
     }
+
+    // change caption when clicked on up button
   }
 
   nextSlide() {
+    // set dynamic change top position variable
     let positionLastItem = (DataSlider.length - 1) * 100;
+    // change top position slider when clicked on down button
     if(this.state.topPosSlide === -positionLastItem) {
       this.setState({
-        topPosSlide: 0
+        ...this.state,
+        topPosSlide: 0,
+        index: 0
       })
     } else {
       this.setState({
-        topPosSlide: this.state.topPosSlide - 100
+        ...this.state,
+        topPosSlide: this.state.topPosSlide - 100,
+        index: this.state.index + 1
       })
     }
   }
@@ -65,8 +77,14 @@ class App extends Component {
             }
 
             <div className="caption"> 
-              <h2 className="caption__title">Hello nature 1</h2>
-              <p className="caption__desc">this is capture for project slider, this project created by react.js library. react.js is library for create UserInterface and SPA Websites</p>
+              <h2 className="caption__title">
+                {console.log(this.state.index)}
+                {DataSlider[this.state.index].captionTitle}
+              </h2>
+              <p className="caption__desc">
+                {console.log(this.state.index)}
+                {DataSlider[this.state.index].captionDesc}
+              </p>
             </div>
 
             <div className="controls">
