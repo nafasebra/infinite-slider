@@ -53,29 +53,17 @@ class App extends Component {
             top: this.state.topSlide + '%'
           }}
         >
-          <div  className="slider"  >
-            <div className="slider__item">
-              <img 
-                  src="https://www.wallpapers13.com/wp-content/uploads/2020/05/Yosemite-National-Park-Valley-in-California-USA-Mountains-Forests-Grass-Nature-Scenery-Wallpaper-Hd.jpg-915x515.jpg"
-                  alt="item-1" 
-              />
-            </div>
-            <div className="slider__item">
+          <div className="slider">
+            {/* <div className="slider__item">
               <img 
                   src="https://img3.akspic.ru/originals/8/0/5/5/45508-nauka-nebo-ozero_pejto-pustynya-ekosistema-2048x1152.jpg" 
                   alt="item-2" 
               />
-            </div>
-            <div className="slider__item">
-              <img 
-                  src="https://img.wallpapersafari.com/tablet/2560/1700/91/23/L0t1MV.jpg" 
-                  alt="item-3" 
-              />
-            </div>
+            </div> */}
 
             <div className="caption"> 
               <h2 className="caption__title">Hello nature 1</h2>
-              <p className="caption__desc">this is capture for project slider, this project created by react.js library. react.js is library for create UserInterface and SPA Websites</p>
+              <p className="caption__desc"></p>
             </div>
 
             <div className="controls">
