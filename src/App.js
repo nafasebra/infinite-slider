@@ -15,28 +15,27 @@ class App extends Component {
     this.state = {
       topPosSlide: 0,
       index: 0,
-      captionOpacity: 1
+      captionOpacity: 1,
+      slides: []
     }
   }
 
+  componentDidMount() {
+
+    this.setState({
+      slides: [
+                DataSlider[DataSlider.length - 1],
+                ...DataSlider,
+                DataSlider[0]
+              ]
+    })
+
+    console.log(this.state.slides);
+  }
 
   prevSlide() { 
-    // set dynamic change top position variable and caption index
-    let positionLastItem = (DataSlider.length - 1) * 100;
-    // change top position slider when clicked on up button
-    if(this.state.topPosSlide === 0) {
-      this.setState({
-        ...this.state,
-        topPosSlide: -positionLastItem,
-        index: 2
-      })
-    } else {
-      this.setState({
-        ...this.state,
-        topPosSlide: this.state.topPosSlide + 100,
-        index: this.state.index - 1
-      })
-    }
+
+    let [index, slides] = this.state;
 
     requestAnimationFrame(() => {
       this.setState({
@@ -48,25 +47,29 @@ class App extends Component {
         })
       }, 200);
     })
-  }
 
-  nextSlide() {
-    // set dynamic change top position variable
-    let positionLastItem = (DataSlider.length - 1) * 100;
-    // change top position slider when clicked on down button
-    if(this.state.topPosSlide === -positionLastItem) {
+    // set dynamic change top position variable and caption index
+    //let positionLastItem = (DataSlider.length - 1) * 100;
+    // change top position slider when clicked on up button
+    if(index <= 0) {
       this.setState({
         ...this.state,
-        topPosSlide: 0,
-        index: 0
+        topPosSlide: this.state.topPosSlide + 100,
+        index: 2
       })
+      // DataSlider.pop();
     } else {
       this.setState({
         ...this.state,
-        topPosSlide: this.state.topPosSlide - 100,
-        index: this.state.index + 1
+        topPosSlide: this.state.topPosSlide + 100,
+        index: this.state.index - 1
       })
     }
+
+    
+  }
+
+  nextSlide() {
 
     requestAnimationFrame(() => {
       this.setState({
@@ -78,6 +81,24 @@ class App extends Component {
         })
       }, 500);
     })
+
+    // set dynamic change top position variable
+    // let positionLastItem = (DataSlider.length - 1) * 100;
+    // change top position slider when clicked on down button
+    if(this.state.index === 2) {
+      this.setState({
+        ...this.state,
+        topPosSlide: this.state.topPosSlide - 100,
+        index: 0
+      })
+      // DataSlider.shift();
+    } else {
+      this.setState({
+        ...this.state,
+        topPosSlide: this.state.topPosSlide - 100,
+        index: this.state.index + 1
+      })
+    }
   }
 
 
@@ -107,10 +128,10 @@ class App extends Component {
                 }}
               >
                 <h2 className="caption__title">
-                  {DataSlider[this.state.index].captionTitle}
+                  {/* {DataSlider[this.state.index].captionTitle} */}
                 </h2>
                 <p className="caption__desc">
-                  {DataSlider[this.state.index].captionDesc}
+                  {/* {DataSlider[this.state.index].captionDesc} */}
                 </p>
               </div>
             </div>
