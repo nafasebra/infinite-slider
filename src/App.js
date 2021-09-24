@@ -16,21 +16,12 @@ class App extends Component {
       topPosSlide: 0,
       index: 0,
       captionOpacity: 1,
-      slides: []
-    }
-  }
-
-  componentDidMount() {
-
-    this.setState({
       slides: [
-                DataSlider[DataSlider.length - 1],
-                ...DataSlider,
-                DataSlider[0]
-              ]
-    })
-
-    console.log(this.state.slides);
+          DataSlider[DataSlider.length - 1],
+          ...DataSlider,
+          DataSlider[0]
+      ]
+    }
   }
 
   prevSlide() { 
@@ -51,7 +42,7 @@ class App extends Component {
     // set dynamic change top position variable and caption index
     //let positionLastItem = (DataSlider.length - 1) * 100;
     // change top position slider when clicked on up button
-    if(index <= 0) {
+    if(index === 0) {
       this.setState({
         ...this.state,
         topPosSlide: this.state.topPosSlide + 100,
@@ -103,7 +94,7 @@ class App extends Component {
 
 
   render() {
-    
+    let { slides } = this.state;
     return (
       <div className="app-container">
         <div 
@@ -115,7 +106,7 @@ class App extends Component {
         >
           <div className="slider">
             {
-              DataSlider.map( item => <div key={item.id} className="slider__item" >
+              slides.map( (item, key) => <div key={key} className="slider__item" >
                                         <img src={item.srcImage} alt={item.altImage} />
                                       </div>)
             }
@@ -128,10 +119,10 @@ class App extends Component {
                 }}
               >
                 <h2 className="caption__title">
-                  {/* {DataSlider[this.state.index].captionTitle} */}
+                  {DataSlider[this.state.index].captionTitle}
                 </h2>
                 <p className="caption__desc">
-                  {/* {DataSlider[this.state.index].captionDesc} */}
+                  {DataSlider[this.state.index].captionDesc}
                 </p>
               </div>
             </div>
