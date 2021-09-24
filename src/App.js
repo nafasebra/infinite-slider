@@ -26,7 +26,7 @@ class App extends Component {
 
   prevSlide() { 
 
-    let [index, slides] = this.state;
+    let {index, slides} = this.state;
 
     requestAnimationFrame(() => {
       this.setState({
@@ -57,10 +57,12 @@ class App extends Component {
       })
     }
 
-    
+    console.log(slides);
   }
 
   nextSlide() {
+
+    let { slides, index, topPosSlide } = this.state;
 
     requestAnimationFrame(() => {
       this.setState({
@@ -76,32 +78,33 @@ class App extends Component {
     // set dynamic change top position variable
     // let positionLastItem = (DataSlider.length - 1) * 100;
     // change top position slider when clicked on down button
-    if(this.state.index === 2) {
+    if(index === 2) {
       this.setState({
         ...this.state,
-        topPosSlide: this.state.topPosSlide - 100,
+        topPosSlide: topPosSlide - 100,
         index: 0
       })
       // DataSlider.shift();
     } else {
       this.setState({
         ...this.state,
-        topPosSlide: this.state.topPosSlide - 100,
-        index: this.state.index + 1
+        topPosSlide: topPosSlide - 100,
+        index: index + 1
       })
     }
   }
 
 
   render() {
-    let { slides } = this.state;
+    let { slides, topPosSlide, index, captionOpacity } = this.state;
+
     return (
       <div className="app-container">
         <div 
           className="slider-container"
           style={{
             position: 'absolute',
-            top: this.state.topPosSlide + '%'
+            top: topPosSlide + '%'
           }}
         >
           <div className="slider">
@@ -114,15 +117,15 @@ class App extends Component {
             <div className="caption"> 
               <div 
                 style={{
-                  opacity: this.state.captionOpacity,
+                  opacity: captionOpacity,
                   transition: 'all 0.5s'
                 }}
               >
                 <h2 className="caption__title">
-                  {DataSlider[this.state.index].captionTitle}
+                  {DataSlider[index].captionTitle}
                 </h2>
                 <p className="caption__desc">
-                  {DataSlider[this.state.index].captionDesc}
+                  {DataSlider[index].captionDesc}
                 </p>
               </div>
             </div>
