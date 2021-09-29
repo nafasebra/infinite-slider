@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-// import Slider from './Components/Slider';
+import React, { PureComponent } from 'react';
 
 // include data of slider
 import { DataSlider } from './Data/DataSlider';
@@ -7,26 +6,30 @@ import { DataSlider } from './Data/DataSlider';
 // import style
 import './App.css';
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor() {
     super();
 
     this.state = {
       topPosSlide: 0,
-      index: 0,
+      current: 0,
       captionOpacity: 1,
       slides: [
-          DataSlider[DataSlider.length - 1],
-          ...DataSlider,
-          DataSlider[0]
+          ...DataSlider
       ]
     }
   }
 
+
+  componentDidUpdate() {
+    
+  }
+
+
   prevSlide() { 
 
-    let {index, slides} = this.state;
+    let {current, slides, topPosSlide} = this.state;
 
     requestAnimationFrame(() => {
       this.setState({
@@ -39,30 +42,19 @@ class App extends Component {
       }, 200);
     })
 
-    // set dynamic change top position variable and caption index
-    //let positionLastItem = (DataSlider.length - 1) * 100;
-    // change top position slider when clicked on up button
-    if(index === 0) {
-      this.setState({
-        ...this.state,
-        topPosSlide: this.state.topPosSlide + 100,
-        index: 2
-      })
-      // DataSlider.pop();
-    } else {
-      this.setState({
-        ...this.state,
-        topPosSlide: this.state.topPosSlide + 100,
-        index: this.state.index - 1
-      })
-    }
+    this.setState({
+      topPosSlide: topPosSlide + 100,
+      current: current === 0 ? 2 : current - 1,
+      slides: current === 1 &&
+        [...DataSlider, ...DataSlider]
+    })
 
     console.log(slides);
   }
 
   nextSlide() {
 
-    let { slides, index, topPosSlide } = this.state;
+    let { slides, current, topPosSlide } = this.state;
 
     requestAnimationFrame(() => {
       this.setState({
@@ -75,28 +67,19 @@ class App extends Component {
       }, 500);
     })
 
-    // set dynamic change top position variable
-    // let positionLastItem = (DataSlider.length - 1) * 100;
-    // change top position slider when clicked on down button
-    if(index === 2) {
-      this.setState({
-        ...this.state,
-        topPosSlide: topPosSlide - 100,
-        index: 0
-      })
-      // DataSlider.shift();
-    } else {
-      this.setState({
-        ...this.state,
-        topPosSlide: topPosSlide - 100,
-        index: index + 1
-      })
-    }
+    this.setState({
+      topPosSlide: topPosSlide - 100,
+      current: current === DataSlider.length - 1 ? 0 : current + 1,
+      slides: current === DataSlider.length - 2  && 
+        [...DataSlider, DataSlider.slice(1, DataSlider.length - 1)]
+    })
+
+    console.log(slides);
   }
 
 
   render() {
-    let { slides, topPosSlide, index, captionOpacity } = this.state;
+    let { slides, topPosSlide, current, captionOpacity } = this.state;
 
     return (
       <div className="app-container">
@@ -109,7 +92,7 @@ class App extends Component {
         >
           <div className="slider">
             {
-              slides.map( (item, key) => <div key={key} className="slider__item" >
+              slides.map( (item, index) => <div key={index} className="slider__item" >
                                         <img src={item.srcImage} alt={item.altImage} />
                                       </div>)
             }
@@ -122,10 +105,10 @@ class App extends Component {
                 }}
               >
                 <h2 className="caption__title">
-                  {DataSlider[index].captionTitle}
+                  {DataSlider[current].captionTitle}
                 </h2>
                 <p className="caption__desc">
-                  {DataSlider[index].captionDesc}
+                  {DataSlider[current].captionDesc}
                 </p>
               </div>
             </div>

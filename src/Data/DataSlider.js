@@ -17,5 +17,11 @@ export const DataSlider = [
         altImage: 'item-3',
         captionTitle: 'Image of nature 3',
         captionDesc: 'this is capture for project slider, this project created by react.js library. react.js is library for create UserInterface and SPA Websites'
+    },{
+        id: 4,
+        srcImage: 'https://besthqwallpapers.com/Uploads/29-7-2017/17431/alps-mountains-ebb-lake-summer.jpg',
+        altImage: 'item-4',
+        captionTitle: 'Image of nature 4',
+        captionDesc: 'this is capture for project slider, this project created by react.js library. react.js is library for create UserInterface and SPA Websites'
     }
 ]

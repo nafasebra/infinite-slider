@@ -2936,9 +2936,9 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
-buffer-indexof@^1.0.0:
+buffer-currentof@^1.0.0:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/buffer-indexof/-/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
+  resolved "https://registry.yarnpkg.com/buffer-currentof/-/buffer-currentof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
   integrity sha512-4/rOEg86jivtPTeOUUT61jJO1Ya1TrR/OkqCSZDyq84WJh3LuuiphBYJN+fm5xufIk4XAFcEwte/8WzC8If/1g==
 
 buffer-xor@^1.0.3:
@@ -4075,7 +4075,7 @@ dns-txt@^2.0.2:
   resolved "https://registry.yarnpkg.com/dns-txt/-/dns-txt-2.0.2.tgz#b91d806f5d27188e4ab3e7d107d881a1cc4642b6"
   integrity sha1-uR2Ab10nGI5Ks+fRB9iBocxGQrY=
   dependencies:
-    buffer-indexof "^1.0.0"
+    buffer-currentof "^1.0.0"
 
 doctrine@1.5.0:
   version "1.5.0"
@@ -5706,9 +5706,9 @@ indent-string@^4.0.0:
   resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251"
   integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
 
-indexes-of@^1.0.1:
+currentes-of@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
+  resolved "https://registry.yarnpkg.com/currentes-of/-/currentes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
   integrity sha1-8w9xbI4r00bHtn0985FVZqfAVgc=
 
 infer-owner@^1.0.3, infer-owner@^1.0.4:
@@ -8623,7 +8623,7 @@ postcss-selector-parser@^3.0.0:
   integrity sha512-h7fJ/5uWuRVyOtkO45pnt1Ih40CEleeyCHzipqAZO2e5H20g25Y48uYnFUiShvY4rZWNJ/Bib/KVPmanaCtOhA==
   dependencies:
     dot-prop "^5.2.0"
-    indexes-of "^1.0.1"
+    currentes-of "^1.0.1"
     uniq "^1.0.1"
 
 postcss-selector-parser@^5.0.0-rc.3, postcss-selector-parser@^5.0.0-rc.4:
@@ -8632,7 +8632,7 @@ postcss-selector-parser@^5.0.0-rc.3, postcss-selector-parser@^5.0.0-rc.4:
   integrity sha512-w+zLE5Jhg6Liz8+rQOWEAwtwkyqpfnmsinXjXg6cY7YIONZZtgvE0v2O0uhQBs0peNomOJwWRKt6JBfTdTd3OQ==
   dependencies:
     cssesc "^2.0.0"
-    indexes-of "^1.0.1"
+    currentes-of "^1.0.1"
     uniq "^1.0.1"
 
 postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
@@ -8641,7 +8641,7 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
   integrity sha512-gjMeXBempyInaBqpp8gODmwZ52WaYsVOsfr4L4lDQ7n3ncD6mEyySiDtgzCT+NYC0mmeOLvtsF8iaEf0YT6dBw==
   dependencies:
     cssesc "^3.0.0"
-    indexes-of "^1.0.1"
+    currentes-of "^1.0.1"
     uniq "^1.0.1"
     util-deprecate "^1.0.2"
 
@@ -8680,7 +8680,7 @@ postcss-values-parser@^2.0.0, postcss-values-parser@^2.0.1:
   integrity sha512-2tLuBsA6P4rYTNKCXYG/71C7j1pU6pK503suYOmn4xYrQIzW+opD+7FAFNuGSdZC/3Qfy334QbeMu7MEb8gOxg==
   dependencies:
     flatten "^1.0.2"
-    indexes-of "^1.0.1"
+    currentes-of "^1.0.1"
     uniq "^1.0.1"
 
 postcss@7.0.21:
@@ -9715,9 +9715,9 @@ serialize-javascript@^5.0.1:
   dependencies:
     randombytes "^2.1.0"
 
-serve-index@^1.9.1:
+serve-current@^1.9.1:
   version "1.9.1"
-  resolved "https://registry.yarnpkg.com/serve-index/-/serve-index-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
+  resolved "https://registry.yarnpkg.com/serve-current/-/serve-current-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
   integrity sha1-03aNabHn2C5c4FD/9bRTvqEqkjk=
   dependencies:
     accepts "~1.3.4"
@@ -11027,7 +11027,7 @@ webpack-dev-server@3.11.1:
     schema-utils "^1.0.0"
     selfsigned "^1.10.8"
     semver "^6.3.0"
-    serve-index "^1.9.1"
+    serve-current "^1.9.1"
     sockjs "^0.3.21"
     sockjs-client "^1.5.0"
     spdy "^4.0.2"
