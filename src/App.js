@@ -13,24 +13,32 @@ class App extends PureComponent {
 
     this.state = {
       topPosSlide: 0,
-      current: 0,
+      current: 1,
       captionOpacity: 1,
-      slides: [
-          ...DataSlider
-      ]
+      slides: [...DataSlider]
     }
   }
-
-
-  componentDidUpdate() {
-    
-  }
-
 
   prevSlide() { 
 
     let {current, slides, topPosSlide} = this.state;
+    const slideLength = DataSlider.length;
+    const slidesArr = [
+      ...DataSlider.slice(-1), 
+      ...DataSlider
+    ].slice(0, slideLength);
 
+
+    if(current >= slideLength || current <= -1) return;
+
+    this.setState({
+      topPosSlide: topPosSlide + 100,
+      current: current - 1,
+      slides: slidesArr
+    })
+
+    
+    // handle animation
     requestAnimationFrame(() => {
       this.setState({
         captionOpacity: 0.5
@@ -42,20 +50,28 @@ class App extends PureComponent {
       }, 200);
     })
 
-    this.setState({
-      topPosSlide: topPosSlide + 100,
-      current: current === 0 ? 2 : current - 1,
-      slides: current === 1 &&
-        [...DataSlider, ...DataSlider]
-    })
-
     console.log(slides);
   }
 
   nextSlide() {
 
     let { slides, current, topPosSlide } = this.state;
+    const slideLength = DataSlider.length;
+    const slidesArr = [
+      ...DataSlider, 
+      ...DataSlider.slice(0, 1)
+    ].slice(-(slideLength));
 
+    if(current >= slideLength || current <= -1) return;
+
+    this.setState({
+      topPosSlide: topPosSlide - 100,
+      current: current === slideLength - 1 ? 0 : current + 1,
+      slides: slidesArr
+    })
+
+    
+    // handle animation
     requestAnimationFrame(() => {
       this.setState({
         captionOpacity: 0
@@ -65,13 +81,6 @@ class App extends PureComponent {
           captionOpacity: 1
         })
       }, 500);
-    })
-
-    this.setState({
-      topPosSlide: topPosSlide - 100,
-      current: current === DataSlider.length - 1 ? 0 : current + 1,
-      slides: current === DataSlider.length - 2  && 
-        [...DataSlider, DataSlider.slice(1, DataSlider.length - 1)]
     })
 
     console.log(slides);
