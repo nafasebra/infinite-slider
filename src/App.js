@@ -13,29 +13,37 @@ class App extends PureComponent {
 
     this.state = {
       topPosSlide: 0,
-      current: 1,
+      current: 0,
       captionOpacity: 1,
-      slides: [...DataSlider]
+      slides: []
     }
+  }
+
+
+  componentDidMount() {
+    
+    this.setState({
+      slides: [
+        DataSlider[DataSlider.length - 1],
+        ...DataSlider
+      ]
+    })
+
+    console.log(this.state.slides);
   }
 
   prevSlide() { 
 
     let {current, slides, topPosSlide} = this.state;
     const slideLength = DataSlider.length;
-    const slidesArr = [
-      ...DataSlider.slice(-1), 
-      ...DataSlider
-    ].slice(0, slideLength);
-
-
-    if(current >= slideLength || current <= -1) return;
 
     this.setState({
       topPosSlide: topPosSlide + 100,
       current: current - 1,
-      slides: slidesArr
+      slides: current === 0 && [...DataSlider.slice(0, slideLength - 2), ...slides]
     })
+    
+    if(current <= -1) return;
 
     
     // handle animation
@@ -50,27 +58,24 @@ class App extends PureComponent {
       }, 200);
     })
 
-    console.log(slides);
+    console.log(this.state);
   }
 
   nextSlide() {
 
     let { slides, current, topPosSlide } = this.state;
     const slideLength = DataSlider.length;
-    const slidesArr = [
-      ...DataSlider, 
-      ...DataSlider.slice(0, 1)
-    ].slice(-(slideLength));
 
-    if(current >= slideLength || current <= -1) return;
 
     this.setState({
       topPosSlide: topPosSlide - 100,
       current: current === slideLength - 1 ? 0 : current + 1,
-      slides: slidesArr
+      slides: current === slideLength - 2 && 
+        [...slides, ...DataSlider]
     })
 
-    
+    if(current >= slideLength) return;
+
     // handle animation
     requestAnimationFrame(() => {
       this.setState({
@@ -83,7 +88,7 @@ class App extends PureComponent {
       }, 500);
     })
 
-    console.log(slides);
+    console.log(this.state);
   }
 
 
