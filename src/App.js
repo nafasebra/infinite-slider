@@ -9,6 +9,7 @@ import './App.css';
 // import components
 import Controls from './components/Controls';
 import Caption from './components/Caption';
+import Slides from './components/Slides';
 
 
 class App extends PureComponent {
@@ -21,7 +22,6 @@ class App extends PureComponent {
       direction: '',
       yPositions: [0, 100, 200, 300]
     }
-    
   }
 
 
@@ -77,14 +77,15 @@ class App extends PureComponent {
         <div className="slider-container">
           <div className="slider">
           {
-            DataSlider.map((item, index) => {
-              let style = this.setTransition(index);
-              return (
-                <div key={item.id} className="slider__item" >
-                  <img src={item.srcImage} style={style} alt={item.altImage} />
-                </div>
-              )
-            })
+              DataSlider.map((item, index) => {
+                  let style = this.setTransition(index);
+                  return (
+                      <Slides
+                        slideItem={item}
+                        itemStyle={style}
+                      />
+                  )
+              })
           }
           </div>
 
