@@ -1,7 +1,7 @@
 # Slider
 ### The infinity slider width React.js
 
-preview:
+### preview:
 ![slider-desktop](https://user-images.githubusercontent.com/74317517/138565408-1e07e66b-7b6a-4d17-9e0f-efbe72a681f8.gif)
 
 ![slider-mobile](https://user-images.githubusercontent.com/74317517/138565632-2e33685d-5e1f-456d-8c37-312f4f515334.gif)
