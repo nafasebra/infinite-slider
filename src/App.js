@@ -6,6 +6,10 @@ import { DataSlider } from './Data/DataSlider';
 // import style
 import './App.css';
 
+// import components
+import Controls from './components/Controls';
+
+
 class App extends PureComponent {
 
   constructor() {
@@ -135,20 +139,10 @@ class App extends PureComponent {
             </div>
           </div>
 
-          <div className="controls">
-            <button 
-              onClick={() => this.prevSlide()}
-              className="prev__button"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
-            </button>
-            <button 
-              onClick={() => this.nextSlide()}
-              className="next__button"
-            >  
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </button>
-          </div>
+          <Controls 
+            prevClick={() => this.prevSlide()}
+            nextClick={() => this.nextSlide()}
+          />
 
           <div className="slider-pagination"></div>
         </div>
