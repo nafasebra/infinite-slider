@@ -13,12 +13,3 @@
   transition: all 500ms;
 }
 
-.slider__item{
-  display: flex;
-  position: absolute;
-}
-.slider__item img{
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}

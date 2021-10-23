@@ -10,6 +10,7 @@ import './App.css';
 import Controls from './components/Controls';
 import Caption from './components/Caption';
 import Slides from './components/Slides';
+import Pagination from './components/Pagination';
 
 
 class App extends PureComponent {
@@ -99,7 +100,7 @@ class App extends PureComponent {
             nextClick={() => this.nextSlide()}
           />
 
-          <div className="slider-pagination"></div>
+          <Pagination currentSlider={current} />
         </div>
       </div>
     );
