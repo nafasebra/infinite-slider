@@ -8,15 +8,14 @@
 }
 
 .slider-container{
-  position: absolute;
   width: 100%;
-  height: 300%;
-  transition: top 500ms;
+  height: 400%;
+  transition: all 500ms;
 }
 
 .slider__item{
   display: flex;
-  position: relative;
+  position: absolute;
 }
 .slider__item img{
   width: 100vw;
