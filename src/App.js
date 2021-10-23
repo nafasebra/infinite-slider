@@ -17,6 +17,7 @@ class App extends PureComponent {
       direction: '',
       yPositions: [0, 100, 200, 300]
     }
+    
   }
 
 
@@ -28,12 +29,10 @@ class App extends PureComponent {
 
     yPositions.push(yPositions.shift());
 
-    if(current === 0) current = 4;
-
     this.setState({
-      current: current - 1,
+      current: current > 0 ? current - 1 : current = DataSlider.length - 1,
       yPositions,
-      direction: 'down',
+      direction: 'up',
     })
 
 
@@ -60,12 +59,10 @@ class App extends PureComponent {
 
     yPositions.unshift(yPositions.pop());
 
-    if(current === DataSlider.length - 1) current = 1;
-
     this.setState({
-      current: current + 1,
+      current: current < DataSlider.length - 1 ? current + 1 : current = 0,
       yPositions,
-      direction: 'up'
+      direction: 'down'
     })
 
 
@@ -80,6 +77,8 @@ class App extends PureComponent {
         })
       }, 500);
     })
+
+    console.log(this.refSlide);
     
   }
 
