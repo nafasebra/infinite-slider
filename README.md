@@ -1,7 +1,19 @@
 # Slider
-### I Created a simple slider with React.js and pure css
+### The infinity slider width React.js
 
 preview:
+![slider-desktop](https://user-images.githubusercontent.com/74317517/138565408-1e07e66b-7b6a-4d17-9e0f-efbe72a681f8.gif)
+
+![slider-mobile](https://user-images.githubusercontent.com/74317517/138565632-2e33685d-5e1f-456d-8c37-312f4f515334.gif)
+
+
+for use:
+- install NPM (nodejs package manager) if npm not installed on your system. 
+- clone this repo <br />
+```
+git clone https://github.com/nafasebra/slider
+```
+- run `npm install`
 
 
 ## Available Scripts
