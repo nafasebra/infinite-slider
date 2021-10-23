@@ -1,0 +1,26 @@
+.caption{
+    position: fixed;
+    bottom: 0;
+    color: #ffffff;
+    background-color: #2121217c;
+    padding: 0.5em 1.5em;
+    width: 50%;
+  }
+  .caption__title{
+    font-size: 1.5em;
+  }
+  .caption__desc{
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: 556px) {
+      .caption{
+          width: 100%;
+      }
+      .caption__title{
+          font-size: 1.2em;
+      }
+      .caption__desc{
+          font-size: 0.8em;
+      }
+  }

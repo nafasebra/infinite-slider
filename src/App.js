@@ -8,6 +8,7 @@ import './App.css';
 
 // import components
 import Controls from './components/Controls';
+import Caption from './components/Caption';
 
 
 class App extends PureComponent {
@@ -17,7 +18,6 @@ class App extends PureComponent {
 
     this.state = {
       current: 0,
-      captionOpacity: 1,
       direction: '',
       yPositions: [0, 100, 200, 300]
     }
@@ -38,21 +38,6 @@ class App extends PureComponent {
       yPositions,
       direction: 'up',
     })
-
-
-    //handle animation
-    requestAnimationFrame(() => {
-      this.setState({
-        captionOpacity: 0.5
-      })
-      setTimeout(() => {
-        this.setState({
-          captionOpacity: 1
-        })
-      }, 500);
-    })
-
-    console.log(this.state);
   }
 
   nextSlide() {
@@ -68,22 +53,6 @@ class App extends PureComponent {
       yPositions,
       direction: 'down'
     })
-
-
-    // handle animation
-    requestAnimationFrame(() => {
-      this.setState({
-        captionOpacity: 0.5
-      })
-      setTimeout(() => {
-        this.setState({
-          captionOpacity: 1
-        })
-      }, 500);
-    })
-
-    console.log(this.refSlide);
-    
   }
 
   setTransition = (index) => {
@@ -101,11 +70,7 @@ class App extends PureComponent {
 
 
   render() {
-    let { 
-      captionOpacity,
-      current
-    } = this.state;
-
+    let { current } = this.state;
 
     return (
       <div className="app-container">
@@ -123,21 +88,10 @@ class App extends PureComponent {
           }
           </div>
 
-          <div className="caption"> 
-            <div 
-              style={{
-                opacity: captionOpacity,
-                transition: 'all 0.5s'
-              }}
-            >
-              <h2 className="caption__title">
-                {DataSlider[current].captionTitle}
-              </h2>
-              <p className="caption__desc">
-                {DataSlider[current].captionDesc}
-              </p>
-            </div>
-          </div>
+          <Caption
+            title={DataSlider[current].captionTitle}
+            text={DataSlider[current].captionDesc}
+          />
 
           <Controls 
             prevClick={() => this.prevSlide()}
