@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // import style of slide items
 import './slides.css';
 
 
-class Slides extends Component {
+class Slides extends PureComponent {
     render() {
         let {
             slideItem,

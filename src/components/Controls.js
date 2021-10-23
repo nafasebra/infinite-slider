@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 // import style of controls
 import './controls.css';
 
 
-class Controls extends Component {
+class Controls extends PureComponent {
     render() {
         let {
             prevClick,

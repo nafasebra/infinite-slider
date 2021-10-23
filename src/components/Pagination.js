@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 // import data of slider
 import { DataSlider } from '../Data/DataSlider';
@@ -7,7 +7,7 @@ import { DataSlider } from '../Data/DataSlider';
 // import style of pagination
 import './pagination.css';
 
-class Pagination extends Component {
+class Pagination extends PureComponent {
     render() {
         let { currentSlider } = this.props;
 
@@ -27,8 +27,8 @@ class Pagination extends Component {
     }
 }
 
-// Pagination.propTypes = {
-
-// };
+Pagination.propTypes = {
+    current: PropTypes.number
+};
 
 export default Pagination;

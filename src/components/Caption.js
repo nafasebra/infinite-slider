@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // import style of caption
 import './caption.css';
 
-class Caption extends Component {
+class Caption extends PureComponent {
     render() {
         let { title, text } = this.props;
 
