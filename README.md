@@ -14,7 +14,7 @@ for use:
 - install NPM (nodejs package manager) if npm not installed on your system. 
 - clone this repo <br />
 ```
-git clone https://github.com/nafasebra/slider
+git clone https://github.com/nafasebra/infinite-slider
 ```
 - run `npm install`
 
